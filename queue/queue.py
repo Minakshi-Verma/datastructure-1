@@ -40,22 +40,16 @@ class Queue_arr:
             # return self.storage[1:]
             return self.storage.pop(0)
 
-class Queue_arr:
+class Queue:
     def __init__(self):
         self.size = 0
-        self.storage = LinkedList()
+        self.storage = LinkedList
     
     def __len__(self):
         return self.size
 
     def enqueue(self, value):      
-        #if there is no headnode
-        if self.size == None:
-            #Add the node value on the top of stack
-            self.size = Node(value)
-        else:
-            newNode.next_node = newNode
-            self.size = newNode          
+        self.storage.add_to_tail(value)      
 
     def dequeue(self):
          #if no head nose in the linkedlist
