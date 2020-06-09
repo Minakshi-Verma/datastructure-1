@@ -18,7 +18,7 @@ sys.path.append('./singly_linked_list')
 from singly_linked_list import LinkedList
 from singly_linked_list import Node
 
-class Queue:
+class Queue_arr:
     def __init__(self):
         self.size = 0
         self.storage = []
@@ -39,6 +39,36 @@ class Queue:
             self.size -= 1
             # return self.storage[1:]
             return self.storage.pop(0)
+
+class Queue_arr:
+    def __init__(self):
+        self.size = 0
+        self.storage = LinkedList()
+    
+    def __len__(self):
+        return self.size
+
+    def enqueue(self, value):      
+        #if there is no headnode
+        if self.size == None:
+            #Add the node value on the top of stack
+            self.size = Node(value)
+        else:
+            newNode.next_node = newNode
+            self.size = newNode          
+
+    def dequeue(self):
+         #if no head nose in the linkedlist
+        if self.size ==0:
+            print("stack is empty")
+        else:            
+            # Removes the head node and makes  
+            #the preceeding one the new head 
+            poppednode = self.tail 
+            self.tail = self.tail.next
+            poppednode.next = None
+            return poppednode.value 
+
 
       
         
