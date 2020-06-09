@@ -4,24 +4,25 @@ class Node:
         self.value = value
         # reference to the next node in the list
         self.next_node = next_node
-​
+
     def get_value(self):
         return self.value
-​
+
     def get_next(self):
         return self.next_node
-​
+
     def set_next(self, new_next):
         # set this node's next_node reference to the passed in node
         self.next_node = new_next
-​
+
+
 class LinkedList:
     def __init__(self):
         # reference to the head of the list
         self.head = None
         # reference to the tail of the list
         self.tail = None
-​
+
     def add_to_tail(self, value):
         # wrap the input value in a node
         new_node = Node(value, None)
@@ -36,7 +37,7 @@ class LinkedList:
             self.tail.set_next(new_node)
             # set the list's tail reference to the new node
             self.tail = new_node
-​
+
     def remove_head(self):
         # return None if there is no head (i.e. the list is empty)
         if not self.head:
@@ -56,30 +57,30 @@ class LinkedList:
         # set the head reference to the current head's next node in the list
         self.head = self.head.get_next()
         return value
-​
+
     def remove_tail(self):
         if not self.head:
             return None
-        
+
         if self.head is self.tail:
             value = self.head.get_value()
             self.head = None
             self.tail = None
             return value
-        
+
         current = self.head
-​
+
         while current.get_next() is not self.tail:
             current = current.get_next()
-​
+
         value = self.tail.get_value()
         self.tail = current
         return value
-​
+
     def contains(self, value):
         if not self.head:
             return False
-​
+
         # Recursive solution
         # def search(node):
         #   if node.get_value() == value:
@@ -88,10 +89,10 @@ class LinkedList:
         #     return False
         #   return search(node.get_next())
         # return search(self.head)
-    
+
         # get a reference to the node we're currently at; update this as we traverse the list
         current = self.head
-        # check to see if we're at a valid node 
+        # check to see if we're at a valid node
         while current:
             # return True if the current value we're looking at matches our target value
             if current.get_value() == value:
@@ -100,7 +101,7 @@ class LinkedList:
             current = current.get_next()
         # if we've gotten here, then the target node isn't in our list
         return False
-​
+
     def get_max(self):
         if not self.head:
             return None

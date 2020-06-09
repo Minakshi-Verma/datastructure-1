@@ -13,27 +13,28 @@ return elements in Last In First Out order.
 import sys
 sys.path.append('./singly_linked_list')
 from singly_linked_list import LinkedList
+from singly_linked_list import Node
+
 
 class Stack:
     def __init__(self):
         self.size = 0
-        self.storage = linkedList
+        self.storage = []
 
     def __len__(self):
-        # length=0
-        # if self.head ==None and self.tail ==None:
-        #     return length ==0
-        # elif self.head != None snd self.tail != None:
-        #     return length +=
-
- 
+        # if len(self.storage) >0:
+        return self.size
         
 
     def push(self, value):
-        return self.storage.add_to_tail(value) 
+        self.storage.append(value) 
+        self.size += 1
 
     def pop(self):
-        if self.head != None and self.tail !=None:
-            return self.storage.remove_tail()
-        elif self.head ==None and self.tail ==None:
+        # if not self.size:        
+        if self.size < 1:
             return None
+        else:
+            self.size -= 1
+            return self.storage.pop()
+       
