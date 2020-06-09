@@ -43,25 +43,22 @@ class Queue_arr:
 class Queue:
     def __init__(self):
         self.size = 0
-        self.storage = LinkedList
+        self.storage = LinkedList()
     
     def __len__(self):
         return self.size
 
     def enqueue(self, value):      
-        self.storage.add_to_tail(value)      
+        self.storage.add_to_tail(value)
+        self.size += 1      
 
     def dequeue(self):
-         #if no head nose in the linkedlist
+         #if no head node in the linkedlist
         if self.size ==0:
             print("stack is empty")
-        else:            
-            # Removes the head node and makes  
-            #the preceeding one the new head 
-            poppednode = self.tail 
-            self.tail = self.tail.next
-            poppednode.next = None
-            return poppednode.value 
+            return None           
+        self.size -=1
+        return self.storage.remove_head()    
 
 
       

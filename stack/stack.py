@@ -12,8 +12,8 @@ return elements in Last In First Out order.
 """
 import sys
 sys.path.append('./singly_linked_list')
-from singly_linked_list import LinkedList, Node
-# from singly_linked_list import Node
+from singly_linked_list import LinkedList
+from singly_linked_list import Node
 
 # Stack Class with array data type
 
@@ -43,29 +43,23 @@ class Stack_arr:
 class Stack:
     def __init__(self):
         self.size = None
-        self.storage = LinkedList
+        self.storage = LinkedList()
 
     def __len__(self):
         return self.size
 
-    def push(self, value):
-        # #if there is no headnode
-        # if self.size == None:
-        #     #Add the node value on the top of stack
-        #     self.size = Node(value)
-        # else:
-        #     newNode.next_node = newNode
-        #     self.size = newNode   
+    def push(self, value):       
         self.storage.add_to_tail(value)
+        self.size += 1
+        print(type(self.size))
     
     def pop(self):
-        #if no head nose in the linkedlist
+        #if no head node in the linkedlist
         if self.size ==0:
             print("stack is empty")
-        else:            
-            # Removes the head node and makes  
-            #the preceeding one the new head 
-            poppednode = self.head 
-            self.head = self.head.next
-            poppednode.next = None
-            return poppednode.data 
+            return None            
+        else:   
+            self.size -=1
+            return self.storage.remove_tail()         
+         
+            
