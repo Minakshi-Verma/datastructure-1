@@ -42,15 +42,15 @@ class Stack_arr:
 #Stack class with linkedlist data type
 class Stack:
     def __init__(self):
-        self.size = None
+        self.size = 0
         self.storage = LinkedList()
 
     def __len__(self):
         return self.size
 
-    def push(self, value):       
+    def push(self, value):            
         self.storage.add_to_tail(value)
-        self.size += 1
+        self.size += 1      
         print(type(self.size))
     
     def pop(self):

@@ -29,6 +29,7 @@ class QueueTests(unittest.TestCase):
 
     def test_pop_respects_order(self):
         self.stack.push(100)
+        print(type(100))
         self.stack.push(101)
         self.stack.push(105)
         self.assertEqual(self.stack.pop(), 105)
