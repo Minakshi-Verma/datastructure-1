@@ -17,20 +17,99 @@ class BSTNode:
 
     # Insert the given value into the tree
     def insert(self, value):
-        pass
+        # #base case
+        # #self is empty check if node exists
+        # #if not:create a new node--> 
+        # if self.value is None:
+        #     self.value = value
+
+       
+        # #--------------or otherwise
+        # # elif value >= self.value:
+        # #     self.right.insert(value)
+        # # else:
+        # #     self.left.insert(value)
+        # #--------
+        #  #caseleft
+        # #if value<self
+
+        # elif value < self.value:
+        #     self.left.insert(value)
+        # #base case;right
+        # #else : if right is value> self.value
+        # else: 
+        #     self.right.insert(value)
+
+        #--------------------
+        if self.value is None:
+            self.value = value
+
+        elif value >= self.value:
+            if self.right:
+                self.right.insert(value)
+            else:
+                self.right = BSTNode(value)
+        else:
+            if self.left:
+                self.left.insert(value)
+            else:
+                self.left = BSTNode(value)
+
+
+
+        #recurse
 
     # Return True if the tree contains the value
     # False if it does not
     def contains(self, target):
-        pass
+        if self.value ==target:
+            return True
+
+        if self.value > target:
+            if self.left is not None:
+                return self.left.contains(target)
+
+        elif self.value< target:
+            if self.right is not None:
+                return self.right.contains(target)
+        else:
+            return False
+
 
     # Return the maximum value found in the tree
     def get_max(self):
-        pass
+        # #recurse right until none
+        # if self.left is None and self.right is None:
+        #     Max = self.value
+        #     return Max
+        # elif self.right is None:
+        #     Max = self.value
+        #     return Max
+        # else:
+        #     self.get_max()
+        #     return Max
+        #------------
+       
+        
+        if self.right ==None:
+            return self.value
+        else:
+            return self.right.get_max()      
+    
 
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
-        pass
+        # base = self.value
+        if not self.left and not self.right:
+            return fn(self.value)
+        elif self.left and not self.right:
+            return fn(self.value), self.left.for_each(fn)
+        elif self.right and not self.left:
+            return fn(self.value), self.right.for_each(fn)
+        elif self.left and self.right:
+            return fn(self.value), self.left.for_each(fn), self.right.for_each(fn)
+
+
 
     # Part 2 -----------------------
 
