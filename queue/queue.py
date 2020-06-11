@@ -24,6 +24,7 @@ class Queue_arr:
         self.storage = []
     
     def __len__(self):
+        # return len(self.storage)
         return self.size
 
     def enqueue(self, value):        
