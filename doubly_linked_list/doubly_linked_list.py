@@ -69,12 +69,14 @@ class DoublyLinkedList:
             self.tail=new_node
             
         else:
-            self.head.insert_before(value)
-            self.head= self.head.prev
+            # self.head.insert_before(value)
+            # self.head= self.head.prev
             #OR
-            # new_node.next = self.head
-            # self.head.prev= new_node 
-            # self.head = new_node
+            new_node.next = self.head
+            self.head.prev= new_node 
+            self.head = new_node
+            #Nor required but setting up the newnode prev to None which is now head
+            self.head.prev =None
            
                  
 
@@ -207,17 +209,20 @@ class DoublyLinkedList:
        
         
     """Returns the highest value currently in the list"""
-    def get_max(self):
-        # maxValue= self.head.value
-        # current = self.head        
-        # while:
-        #     #check if maxValue is greater than current.value
-        #     if maxValue>current.value
-            
-                    
-        #     return maxValue
+    # def get_max(self):
+    #     if not self.head:
+    #         return None
+    #     else:
+    #         max_value =self.head.value
+    #         current = self.head
+    #         while current:
+    #             if current.value> max_value:
+    #                 current = current.next
+    #                 return current.value
 
-                
+        
+      
+      
                  
 
             
