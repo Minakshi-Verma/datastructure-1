@@ -15,8 +15,8 @@ Stretch: What if you could only use instances of your Stack class to implement t
 """
 import sys
 sys.path.append('./singly_linked_list')
-from singly_linked_list import LinkedList
-from singly_linked_list import Node
+from singly_linked_list import LinkedList, Node
+# from singly_linked_list import Node
 
 class Queue_arr:
     def __init__(self):
@@ -24,6 +24,7 @@ class Queue_arr:
         self.storage = []
     
     def __len__(self):
+        # return len(self.storage)
         return self.size
 
     def enqueue(self, value):        
